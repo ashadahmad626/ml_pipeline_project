@@ -4,7 +4,7 @@ from src.logger import logging
 
 
 def error_message_detailed(error, error_detailed:sys):
-    _, _, exc_tb = error_detailed.exc_info()
+    _, _, exc_tb = error_detailed.exc_info() # exc_tb: execution start from tri-block
 
     file_name = exc_tb.tb_frame.f_code.co_filename
 
