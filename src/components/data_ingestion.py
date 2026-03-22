@@ -7,6 +7,7 @@ from src.logger import logger
 from src.exception import CustomException 
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation
+from src.components.modrl_trainer import ModelTrainer
 
 @dataclass
 class DataIngestionConfig:
@@ -85,9 +86,13 @@ if __name__ == "__main__":
         logger.info(f"Test array shape: {test_arr.shape}")
         logger.info(f"Preprocessor saved: {preprocess_path}")
         
+        modeltrainer = ModelTrainer()
+        print(modeltrainer.initiate_model_trainer(train_arr, test_arr))
+
     except Exception as e:
         logger.error(f"Pipeline failed: {e}")
         raise CustomException(e, sys)
+    
     
 
 #src/components/data_ingestion.py
